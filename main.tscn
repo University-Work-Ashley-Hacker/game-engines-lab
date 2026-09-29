@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://h1dun5bgcyyy"]
+
+[ext_resource type="PackedScene" uid="uid://bnf8chnt51x1" path="res://entities/player/player.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bprak0v3xccdy" path="res://common/components/core/move_component.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://db5bkie8hvadi" path="res://common/components/core/stat_component.gd" id="3_1bvp3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x0ag"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lquwl"]
+radius = 125.0
+height = 250.0
+
+[node name="Main" type="Node2D" unique_id=515702118]
+
+[node name="Player" parent="." unique_id=1570173694 instance=ExtResource("2_0xm2m")]
+position = Vector2(0, -179.473)
+
+[node name="World" type="CharacterBody2D" parent="." unique_id=869731437]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World" unique_id=834627089]
+shape = SubResource("CircleShape2D_7x0ag")
+
+[node name="Visuals" type="Node2D" parent="World" unique_id=175231812]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="World/Visuals" unique_id=859915605]
+mesh = SubResource("SphereMesh_lquwl")
+
+[node name="Body" type="Node2D" parent="World" unique_id=1601088207]
+
+[node name="Management" type="Node" parent="World" unique_id=569045374]
+
+[node name="MoveComponent" type="Node" parent="World/Management" unique_id=731894345 node_paths=PackedStringArray("actor", "stat_component")]
+unique_name_in_owner = true
+script = ExtResource("2_h2yge")
+actor = NodePath("../..")
+stat_component = NodePath("../StatComponent")
+metadata/_custom_type_script = "uid://bprak0v3xccdy"
+
+[node name="StatComponent" type="Node" parent="World/Management" unique_id=1514798249]
+unique_name_in_owner = true
+script = ExtResource("3_1bvp3")
+metadata/_custom_type_script = "uid://db5bkie8hvadi"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1981932457]

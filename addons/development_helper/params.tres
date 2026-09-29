@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HelperParams" format=3 uid="uid://b8tislf6yqhxx"]
+
+[ext_resource type="Script" uid="uid://dqeqes1awcy4i" path="res://addons/development_helper/helper_paramaters.gd" id="1_0v1dg"]
+
+[resource]
+script = ExtResource("1_0v1dg")
+scene_to_load = "res://stages/_dev_stage/dev_stage.tscn"
+metadata/_custom_type_script = "uid://dqeqes1awcy4i"

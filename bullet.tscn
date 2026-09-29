@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://vbwics6eogoe"]
+
+[ext_resource type="Script" uid="uid://bprak0v3xccdy" path="res://common/components/core/move_component.gd" id="1_v8qja"]
+[ext_resource type="Script" uid="uid://db5bkie8hvadi" path="res://common/components/core/stat_component.gd" id="2_t4vbm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x0ag"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_f3c1p"]
+radius = 5.0
+height = 10.0
+
+[node name="Bullet" type="CharacterBody2D" unique_id=869731437]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=834627089]
+shape = SubResource("CircleShape2D_7x0ag")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=175231812]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Visuals" unique_id=859915605]
+mesh = SubResource("SphereMesh_f3c1p")
+
+[node name="Body" type="Node2D" parent="." unique_id=1601088207]
+
+[node name="Management" type="Node" parent="." unique_id=569045374]
+
+[node name="MoveComponent" type="Node" parent="Management" unique_id=731894345 node_paths=PackedStringArray("actor", "stat_component")]
+unique_name_in_owner = true
+script = ExtResource("1_v8qja")
+actor = NodePath("../..")
+stat_component = NodePath("../StatComponent")
+metadata/_custom_type_script = "uid://bprak0v3xccdy"
+
+[node name="StatComponent" type="Node" parent="Management" unique_id=1514798249]
+unique_name_in_owner = true
+script = ExtResource("2_t4vbm")
+metadata/_custom_type_script = "uid://db5bkie8hvadi"

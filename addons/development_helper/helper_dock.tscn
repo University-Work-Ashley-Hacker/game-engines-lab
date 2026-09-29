@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://1wk5akywkwwr"]
+
+[ext_resource type="Script" uid="uid://crvephnh2k1nm" path="res://addons/development_helper/helper_dock.gd" id="1_11bgk"]
+[ext_resource type="PackedScene" uid="uid://njjw00wolmj7" path="res://addons/development_helper/scene_subdock.tscn" id="1_jner1"]
+[ext_resource type="PackedScene" uid="uid://csd628kt6iw10" path="res://addons/development_helper/spawn_subdock.tscn" id="2_11bgk"]
+[ext_resource type="Resource" uid="uid://b8tislf6yqhxx" path="res://addons/development_helper/params.tres" id="2_wh2fu"]
+
+[node name="Dock" type="PanelContainer" unique_id=1092267806 node_paths=PackedStringArray("scene_path_line_edit", "scene_path_pick_button", "select_current_scene_path_button", "scene_identifier_line_edit", "spawn_player_toggle", "spawn_lighting_toggle", "player_spawn_pos_menu", "spawn_x", "spawn_y", "spawn_z", "run_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_11bgk")
+params = ExtResource("2_wh2fu")
+scene_path_line_edit = NodePath("VBoxContainer/SceneDock/ScenePath/ScenePathLineEdit")
+scene_path_pick_button = NodePath("VBoxContainer/SceneDock/ScenePath/PickButton")
+select_current_scene_path_button = NodePath("VBoxContainer/SceneDock/ScenePath/SelectCurrentButton")
+scene_identifier_line_edit = NodePath("VBoxContainer/SceneDock/SceneIdentifier/IdentifierLineEdit")
+spawn_player_toggle = NodePath("VBoxContainer/SpawnDock/PlayerToggle")
+spawn_lighting_toggle = NodePath("VBoxContainer/SpawnDock/LightingToggle")
+player_spawn_pos_menu = NodePath("VBoxContainer/SpawnDock/SpawnPos")
+spawn_x = NodePath("VBoxContainer/SpawnDock/SpawnPos/SpinBox")
+spawn_y = NodePath("VBoxContainer/SpawnDock/SpawnPos/SpinBox2")
+spawn_z = NodePath("VBoxContainer/SpawnDock/SpawnPos/SpinBox3")
+run_button = NodePath("VBoxContainer/RunDock/RunButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1664996482]
+layout_mode = 2
+
+[node name="RunDock" type="VBoxContainer" parent="VBoxContainer" unique_id=966859211]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/RunDock" unique_id=29600267]
+layout_mode = 2
+text = "Actions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RunButton" type="Button" parent="VBoxContainer/RunDock" unique_id=331294750]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Run"
+
+[node name="SceneDock" parent="VBoxContainer" unique_id=1954340861 instance=ExtResource("1_jner1")]
+layout_mode = 2
+
+[node name="SpawnDock" parent="VBoxContainer" unique_id=1265099524 instance=ExtResource("2_11bgk")]
+layout_mode = 2
+
+[node name="SpawnPos" parent="VBoxContainer/SpawnDock" index="2" unique_id=370448702]
+visible = false
+
+[node name="SpinBox2" parent="VBoxContainer/SpawnDock/SpawnPos" index="2" unique_id=195711995]
+value = 10.0
+
+[editable path="VBoxContainer/SceneDock"]
+[editable path="VBoxContainer/SpawnDock"]

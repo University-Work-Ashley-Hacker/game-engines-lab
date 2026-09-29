@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://njjw00wolmj7"]
+
+[node name="SceneDock" type="VBoxContainer" unique_id=1954340861]
+
+[node name="Label" type="Label" parent="." unique_id=1721077355]
+layout_mode = 2
+text = "Scene"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScenePath" type="HBoxContainer" parent="." unique_id=1050513042]
+layout_mode = 2
+
+[node name="ScenePathLabel" type="Label" parent="ScenePath" unique_id=978380491]
+layout_mode = 2
+text = "Scene Path"
+
+[node name="ScenePathLineEdit" type="LineEdit" parent="ScenePath" unique_id=1831243940]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Scene Path"
+
+[node name="PickButton" type="Button" parent="ScenePath" unique_id=1466618646]
+layout_mode = 2
+text = "Pick"
+
+[node name="SelectCurrentButton" type="Button" parent="ScenePath" unique_id=1171605878]
+layout_mode = 2
+text = "Current"
+
+[node name="SceneIdentifier" type="HBoxContainer" parent="." unique_id=517194706]
+layout_mode = 2
+
+[node name="IdentifierLabel" type="Label" parent="SceneIdentifier" unique_id=259929945]
+layout_mode = 2
+text = "Identifier"
+
+[node name="IdentifierLineEdit" type="LineEdit" parent="SceneIdentifier" unique_id=1490575504]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Scene Identifier"

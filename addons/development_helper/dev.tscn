@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bt8asx6qoith1"]
+
+[ext_resource type="Script" uid="uid://cw6xdyvp7l6ff" path="res://common/autoload/game_controller.gd" id="1_0g12c"]
+[ext_resource type="Script" uid="uid://cufetmy4erbao" path="res://addons/development_helper/development_helper.gd" id="3_4787h"]
+[ext_resource type="Theme" uid="uid://cfx6jnlaq1ti3" path="res://entities/ui/menu/menu_theme.tres" id="3_p4ujc"]
+[ext_resource type="Resource" uid="uid://b8tislf6yqhxx" path="res://addons/development_helper/params.tres" id="4_crenh"]
+[ext_resource type="PackedScene" uid="uid://cdkdvkt1w2dbn" path="res://entities/_player/player.tscn" id="5_w0vr0"]
+[ext_resource type="PackedScene" uid="uid://ciid1hmt4eieu" path="res://addons/development_helper/lighting.tscn" id="5_x8wv5"]
+
+[node name="Main" type="Node" unique_id=360807822 node_paths=PackedStringArray("world_2d", "world_3d", "gui")]
+script = ExtResource("1_0g12c")
+world_2d = NodePath("World2D")
+world_3d = NodePath("World3D")
+gui = NodePath("GUI")
+
+[node name="World2D" type="Node2D" parent="." unique_id=79321024]
+position = Vector2(4, 1)
+
+[node name="World3D" type="Node3D" parent="." unique_id=1203574058]
+
+[node name="GUI" type="Control" parent="." unique_id=605084719]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_p4ujc")
+
+[node name="DevelopmentHelper" type="Node" parent="." unique_id=1268688492 node_paths=PackedStringArray("game_controller")]
+script = ExtResource("3_4787h")
+params = ExtResource("4_crenh")
+game_controller = NodePath("..")
+player = ExtResource("5_w0vr0")
+lighting = ExtResource("5_x8wv5")

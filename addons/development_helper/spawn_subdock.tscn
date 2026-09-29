@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://csd628kt6iw10"]
+
+[node name="SpawnDock" type="VBoxContainer" unique_id=1265099524]
+
+[node name="Label" type="Label" parent="." unique_id=29600267]
+layout_mode = 2
+text = "Stuff To Spawn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerToggle" type="CheckBox" parent="." unique_id=570361799]
+layout_mode = 2
+text = "Player"
+
+[node name="SpawnPos" type="HBoxContainer" parent="." unique_id=370448702]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SpawnPos" unique_id=140815238]
+layout_mode = 2
+text = "Spawn Position"
+
+[node name="SpinBox" type="SpinBox" parent="SpawnPos" unique_id=347314163]
+layout_mode = 2
+
+[node name="SpinBox2" type="SpinBox" parent="SpawnPos" unique_id=195711995]
+layout_mode = 2
+
+[node name="SpinBox3" type="SpinBox" parent="SpawnPos" unique_id=815304235]
+layout_mode = 2
+
+[node name="LightingToggle" type="CheckBox" parent="." unique_id=1193709679]
+layout_mode = 2
+text = "Lighting"
