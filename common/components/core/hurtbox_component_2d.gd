@@ -1,12 +1,12 @@
 @icon("uid://fgokq5hn5m3l")
 @tool
-class_name HurtboxComponent3D
-extends Area3D
+class_name HurtboxComponent2D
+extends Area2D
 
 const HURTBOX_GROUP: String = "hurtbox"
 const HITHURTBOX_LAYER: int = 4
 
-var _col: CollisionShape3D
+var _col: CollisionShape2D
 
 
 @export var active: bool = true:

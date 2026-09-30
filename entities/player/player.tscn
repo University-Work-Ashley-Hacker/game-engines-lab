@@ -2,34 +2,25 @@
 
 [ext_resource type="Script" uid="uid://bqvxychwt8iog" path="res://entities/player/player.gd" id="1_abrql"]
 [ext_resource type="Texture2D" uid="uid://bvgvdlskt4a1p" path="res://misc/SteamHappy.png" id="1_symyc"]
+[ext_resource type="PackedScene" uid="uid://vbwics6eogoe" path="res://bullet.tscn" id="2_fkugw"]
 [ext_resource type="Script" uid="uid://bprak0v3xccdy" path="res://common/components/core/move_component.gd" id="3_sglur"]
 [ext_resource type="Script" uid="uid://db5bkie8hvadi" path="res://common/components/core/stat_component.gd" id="4_bls4j"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f3c1p"]
-radius = 52.34501
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x0ag"]
+radius = 23.021729
 
-[node name="Player" type="CharacterBody2D" unique_id=1570173694 node_paths=PackedStringArray("move_component", "pivot")]
+[node name="Player" type="CharacterBody2D" unique_id=1419123738 node_paths=PackedStringArray("move_component")]
+collision_mask = 8
 script = ExtResource("1_abrql")
 move_component = NodePath("Management/MoveComponent")
-pivot = NodePath("Visuals/Pivot")
+bullet = ExtResource("2_fkugw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2101456691]
-shape = SubResource("CircleShape2D_f3c1p")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1662663866]
+shape = SubResource("CircleShape2D_7x0ag")
 
-[node name="Visuals" type="Node2D" parent="." unique_id=261811821]
-
-[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1791967404]
-scale = Vector2(0.5, 0.5)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1791967404]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_symyc")
-
-[node name="Pivot" type="Node2D" parent="Visuals" unique_id=126511245]
-
-[node name="Sprite2D" type="Sprite2D" parent="Visuals/Pivot" unique_id=2037021735]
-position = Vector2(89.99999, 0)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_symyc")
-
-[node name="Body" type="Node2D" parent="." unique_id=1195343317]
 
 [node name="Management" type="Node" parent="." unique_id=1833178296]
 

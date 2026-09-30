@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b8k30id8j8l56"]
+
+[ext_resource type="Texture2D" uid="uid://dmdnkpr0kkkd2" path="res://common/components/icons/settings_icon.svg" id="1_ctltl"]
+[ext_resource type="Script" uid="uid://fs1qs6j3npia" path="res://entities/enemies/basic_enemy.gd" id="1_iookv"]
+[ext_resource type="Script" uid="uid://bah036ti6ys5e" path="res://common/components/core/hitbox_component_2d.gd" id="3_5ykiu"]
+[ext_resource type="Script" uid="uid://db5bkie8hvadi" path="res://common/components/core/stat_component.gd" id="4_4lwq5"]
+[ext_resource type="Script" uid="uid://dhmfg2xmqyv2c" path="res://common/components/core/health_component.gd" id="5_43b24"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71u2u"]
+radius = 30.0
+
+[node name="Enemy" type="Area2D" unique_id=491481393 node_paths=PackedStringArray("health_component")]
+collision_mask = 17
+script = ExtResource("1_iookv")
+health_component = NodePath("Management/HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1175998741]
+shape = SubResource("CircleShape2D_71u2u")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1683947568]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=32819924]
+scale = Vector2(0.19834712, 0.19834712)
+texture = ExtResource("1_ctltl")
+
+[node name="Collision" type="Node2D" parent="." unique_id=1948559826]
+
+[node name="HitboxComponent2D" type="Area2D" parent="Collision" unique_id=1161632470]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("3_5ykiu")
+damage = 200
+active = true
+metadata/_custom_type_script = "uid://bah036ti6ys5e"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/HitboxComponent2D" unique_id=17027375]
+shape = SubResource("CircleShape2D_71u2u")
+
+[node name="Management" type="Node" parent="." unique_id=1486668971]
+
+[node name="StatComponent" type="Node" parent="Management" unique_id=411707720]
+unique_name_in_owner = true
+script = ExtResource("4_4lwq5")
+metadata/_custom_type_script = "uid://db5bkie8hvadi"
+
+[node name="HealthComponent" type="Node" parent="Management" unique_id=840614578 node_paths=PackedStringArray("stat_component")]
+unique_name_in_owner = true
+script = ExtResource("5_43b24")
+stat_component = NodePath("../StatComponent")
+metadata/_custom_type_script = "uid://dhmfg2xmqyv2c"

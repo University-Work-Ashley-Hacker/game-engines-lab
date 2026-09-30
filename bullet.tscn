@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://vbwics6eogoe"]
 
+[ext_resource type="Script" uid="uid://c2np2dorbkdsy" path="res://bullet.gd" id="1_t4vbm"]
 [ext_resource type="Script" uid="uid://bprak0v3xccdy" path="res://common/components/core/move_component.gd" id="1_v8qja"]
 [ext_resource type="Script" uid="uid://db5bkie8hvadi" path="res://common/components/core/stat_component.gd" id="2_t4vbm"]
 
@@ -10,6 +11,9 @@ radius = 5.0
 height = 10.0
 
 [node name="Bullet" type="CharacterBody2D" unique_id=869731437]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_t4vbm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=834627089]
 shape = SubResource("CircleShape2D_7x0ag")

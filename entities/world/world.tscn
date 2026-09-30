@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://pe2qjrw8w4"]
+
+[ext_resource type="Script" uid="uid://dxd5aujnt56o1" path="res://world.gd" id="1_mrp82"]
+[ext_resource type="Texture2D" uid="uid://bgwctdgm26jli" path="res://entities/world/world.png" id="2_db8ab"]
+[ext_resource type="Script" uid="uid://jru8wxi7n0n3" path="res://common/components/core/hurtbox_component_2d.gd" id="3_hl0m3"]
+[ext_resource type="Script" uid="uid://db5bkie8hvadi" path="res://common/components/core/stat_component.gd" id="4_ftcbs"]
+[ext_resource type="Script" uid="uid://dhmfg2xmqyv2c" path="res://common/components/core/health_component.gd" id="5_rxgam"]
+[ext_resource type="Script" uid="uid://cc0tk1wv7sppk" path="res://common/components/core/death_component.gd" id="6_db8ab"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x0ag"]
+radius = 95.189285
+
+[node name="World" type="Node2D" unique_id=212811872]
+script = ExtResource("1_mrp82")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=341829577]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1420702415]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_db8ab")
+
+[node name="Collision" type="Node2D" parent="." unique_id=1248310148]
+
+[node name="HurtboxComponent2D" type="Area2D" parent="Collision" unique_id=411394135 node_paths=PackedStringArray("health_component")]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("3_hl0m3")
+critical_hurtbox = true
+health_component = NodePath("../../Management/HealthComponent")
+metadata/_custom_type_script = "uid://jru8wxi7n0n3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/HurtboxComponent2D" unique_id=2128733848]
+shape = SubResource("CircleShape2D_7x0ag")
+
+[node name="Management" type="Node" parent="." unique_id=100772654]
+
+[node name="StatComponent" type="Node" parent="Management" unique_id=298214990]
+unique_name_in_owner = true
+script = ExtResource("4_ftcbs")
+metadata/_custom_type_script = "uid://db5bkie8hvadi"
+
+[node name="HealthComponent" type="Node" parent="Management" unique_id=84466356 node_paths=PackedStringArray("stat_component")]
+unique_name_in_owner = true
+script = ExtResource("5_rxgam")
+stat_component = NodePath("../StatComponent")
+metadata/_custom_type_script = "uid://dhmfg2xmqyv2c"
+
+[node name="DeathComponent" type="Node" parent="Management" unique_id=744745639 node_paths=PackedStringArray("actor", "health_component")]
+unique_name_in_owner = true
+script = ExtResource("6_db8ab")
+actor = NodePath("../..")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://cc0tk1wv7sppk"

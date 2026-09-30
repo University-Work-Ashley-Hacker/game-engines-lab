@@ -1,9 +1,6 @@
 @tool
 extends EditorPlugin
 
-var dock: EditorDock ##The configuration dock
-var dock_scene: SceneBuilderDock
-
 var spawn_2d_shortcut: Shortcut
 var spawn_3d_shortcut: Shortcut
 
@@ -20,7 +17,7 @@ func _enter_tree() -> void:
 	var key_2d: InputEventKey = InputEventKey.new()
 	key_2d.keycode = KEY_2
 	key_2d.alt_pressed = true
-	key_2d.shift_pressed = true # Ctrl on Windows/Linux, Cmd on macOS
+	key_2d.shift_pressed = true
 	
 	spawn_2d_shortcut = Shortcut.new()
 	spawn_2d_shortcut.events = [key_2d]
@@ -28,7 +25,7 @@ func _enter_tree() -> void:
 	var key_3d: InputEventKey = InputEventKey.new()
 	key_3d.keycode = KEY_3
 	key_3d.alt_pressed = true
-	key_3d.shift_pressed = true # Ctrl on Windows/Linux, Cmd on macOS
+	key_3d.shift_pressed = true
 	
 	spawn_3d_shortcut = Shortcut.new()
 	spawn_3d_shortcut.events = [key_3d]
@@ -57,7 +54,7 @@ func _build_group_3d() -> Node3D:
 	root.add_child(visuals)
 
 	var collision: Node3D = Node3D.new()
-	collision.name = "Body"
+	collision.name = "Collision"
 	root.add_child(collision)
 
 	var management: Node = Node.new()
@@ -112,7 +109,7 @@ func _build_group_2d() -> Node2D:
 	root.add_child(visuals)
 
 	var collision: Node2D = Node2D.new()
-	collision.name = "Body"
+	collision.name = "Collision"
 	root.add_child(collision)
 
 	var management: Node = Node.new()
