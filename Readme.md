@@ -10,7 +10,10 @@ This game was coded HORRIBLY because it was literally my first game ever. 2021 A
 
 ## I got distracted making another tool
 I unfortunately had less time to work on the actual game prototype than I thought I would. Probably because a good chunk of time was spent working on a new plugin for the engine. In the addons folder you will find the SceneBuilder addon, it basically just speeds up the time it takes to create an entity by spawning a bunch of nodes in for me in a specific structure.
-![[GE_LAB_DEMO|center|500x00]]
+
+<img width="506" height="445" alt="scene_tree_example" src="https://github.com/user-attachments/assets/ed0a758d-29cd-469f-afad-24b8ee8c0f77" />
+
+
 All entities I create and ever create should follow this structure, however when developing it can be annoying setting up the nodes manually over and over. You can press Alt+Shift+2 or 3 to create these nodes for 2D or 3D respectively.
 
 Originally there was an additional EditorDock with buttons in it, but I thought keyboard shortcuts would be easier for me since I'm the only one using it. It adds everything to the EditorUndoRedoManager so it has proper Undo and Redo support.
@@ -85,6 +88,9 @@ public abstract class SingletonPersistant<T> : Singleton<T> where T : MonoBehavi
 ```
 
 For the sake of transparency, I used these exact same code snippets in the lecture Participation Activity 3, but that assignment was almost the same as this, and it's also my code, so I think it's probably fine.
+
+<img width="855" height="506" alt="DiagramBrah" src="https://github.com/user-attachments/assets/1dc7d7b9-053f-4bc3-bcfd-fe2264d7886f" />
+
 
 ## I hate singletons
 Using singletons makes your entire game logic dependent on said singleton. It's a sloppy way of writing code having 1 master file everything relies on. Obviously if you don't use singletons like that then boom! But you immediately realize why singletons suck when overused when you have to detangled a [disasterously programmed game](https://bnuey.itch.io/upcard)
